@@ -93,6 +93,7 @@ public class HallTkt extends JFrame implements ActionListener, MouseListener {
 	JLabel exam_ti = new JLabel("Exam Title");
 	JLabel ex_dat = new JLabel("Date of Exam");
 	JLabel place = new JLabel("Place of Exam");
+	JLabel centerTimeToReach = new JLabel("Exam Start Time");
 	JLabel cert_dist = new JLabel("Certificate distribution day");
 	JLabel percent = new JLabel("Percentage");
 	
@@ -109,6 +110,7 @@ public class HallTkt extends JFrame implements ActionListener, MouseListener {
 	JTextField xam_title = new JTextField();
 	JTextField xam_date = new JTextField();
 	JTextField xam_place = new JTextField();
+	JTextField xam_time = new JTextField();
 	JTextField xam_inst = new JTextField();
 	JTextField percentage = new JTextField();
 	
@@ -919,6 +921,7 @@ public class HallTkt extends JFrame implements ActionListener, MouseListener {
 		xam_title.setToolTipText("Enter The Title Of The Exam");
 		xam_date.setToolTipText("Enter The Date Of The Exam");
 		xam_place.setToolTipText("Enter The Place Of The Exam");
+		xam_time.setToolTipText("Enter The Date and Time Of Exam to reach Students");
 		xam_inst.setToolTipText("Enter Certificate Distribution Date And Time");
 		back1.addActionListener(this);
 		get_hall.addActionListener(this);
@@ -946,12 +949,14 @@ public class HallTkt extends JFrame implements ActionListener, MouseListener {
 						.addComponent(exam_ti)
 						.addComponent(ex_dat)
 						.addComponent(place)
+						.addComponent(centerTimeToReach)
 						.addComponent(cert_dist))
 						.addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
 								.addComponent(for_head)
 								.addComponent(xam_title)
 								.addComponent(xam_date)
 								.addComponent(xam_place)
+								.addComponent(xam_time)
 								.addComponent(xam_inst)
 								.addComponent(get_hall))
 								.addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
@@ -983,20 +988,23 @@ public class HallTkt extends JFrame implements ActionListener, MouseListener {
 														.addComponent(place)
 														.addComponent(xam_place))
 														.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-																.addComponent(cert_dist)
-																.addComponent(xam_inst))
+																.addComponent(centerTimeToReach)
+																.addComponent(xam_time))
 																.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-																		
-																		.addComponent(get_addr)
-																		)
-																		.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-																				.addComponent(get_atten))
-																				.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-																						.addComponent(get_hall)
-																						.addComponent(get_res))
-																				.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-																						.addComponent(res_csv)));
-		
+																	.addComponent(cert_dist)
+																	.addComponent(xam_inst))
+																	.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+																			
+																			.addComponent(get_addr)
+																			)
+																			.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+																					.addComponent(get_atten))
+																					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+																							.addComponent(get_hall)
+																							.addComponent(get_res))
+																					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+																							.addComponent(res_csv)));
+			
 		
 		genF.setVisible(true);
 	}
@@ -2301,7 +2309,10 @@ public class HallTkt extends JFrame implements ActionListener, MouseListener {
 			} else if (xam_place.getText().length() == 0){
 				Telegraph tele = new Telegraph("Enter Place of Exam", "Place of Exam can't be empty", TelegraphType.NOTIFICATION_WARNING, WindowPosition.BOTTOMRIGHT, 4000);				
 				que.add(tele);
-			} else if (xam_inst.getText().length() == 0){
+			} else if (xam_time.getText().length() == 0){
+				Telegraph tele = new Telegraph("Enter Time of Exam", "Time of Exam can't be empty", TelegraphType.NOTIFICATION_WARNING, WindowPosition.BOTTOMRIGHT, 4000);				
+				que.add(tele);
+			}else if (xam_inst.getText().length() == 0){
 				Telegraph tele = new Telegraph("Enter Certificate Distribution Day", "Certificate Distribution Day can't be empty", TelegraphType.NOTIFICATION_WARNING, WindowPosition.BOTTOMRIGHT, 4000);				
 				que.add(tele);
 			} else {
@@ -2362,10 +2373,10 @@ public class HallTkt extends JFrame implements ActionListener, MouseListener {
 			cell5.setHorizontalAlignment(Element.ALIGN_CENTER);
 			
 			Phrase inst = new Phrase("IMPORTANT INSTRUCTIONS", n);
-			Phrase ins1 = new Phrase("Please be present at the Centre before 9 a.m. on the date of Examination", si);
-			Phrase ins2 = new Phrase("Distribution of Certificates and Sambhavana for the successful candidates through the benign hands of Acharyas shall be on "+xam_inst.getText().toUpperCase()+ " onwards at Srimatam, Kanchipuram. ", si);
-			Phrase ins3 = new Phrase("Travelling Allowance by shortest route for Examination and Distribution Function shall be borne by the Trust after production of valuable train or bus tickets  which is a must .", si);
-			Phrase ins4 = new Phrase("Candidates will not be admitted to the Examination without Hall Ticket", si);
+			Phrase ins1 = new Phrase("Please be present at the Centre before "+xam_time.getText().toUpperCase(), si);
+			Phrase ins2 = new Phrase("Distribution of Certificates and Sambhavana for the successful candidates from the benign hands of Acharyas shall be on "+xam_inst.getText().toUpperCase(), si);
+			Phrase ins3 = new Phrase("Travelling Allowance by shortest route for Examination and Sambhavana Distribution Function will be paid by the Trust on production of valid NON-A/C train or bus tickets which is a must.", si);
+			Phrase ins4 = new Phrase("Please produce this hall ticket for entry into examination centre.", si);
 			Phrase cand_sign = new Phrase("SIGNATURE OF CANDIDATE", n);
 			Phrase auth_sign = new Phrase("SIGNATURE OF AUTHORITY", n);
 			
@@ -2724,6 +2735,7 @@ public class HallTkt extends JFrame implements ActionListener, MouseListener {
 				xam_title.setText("");
 				xam_date.setText("");
 				xam_place.setText("");
+				xam_time.setText("");
 				xam_inst.setText("");
 			}
 			
