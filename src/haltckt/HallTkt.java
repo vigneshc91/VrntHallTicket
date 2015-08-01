@@ -2608,7 +2608,7 @@ public class HallTkt extends JFrame implements ActionListener, MouseListener {
 					pl1_c.setColspan(3);			
 					pl1_c.setBorder(0);
 					PdfPCell cell_poto = new PdfPCell(im_c);
-					im_c.scaleToFit(100,60);
+					im_c.scaleToFit(130,78);
 					cell_poto.setBorder(0);
 					cell_poto.setHorizontalAlignment(Element.ALIGN_CENTER);
 					cell_poto.setVerticalAlignment(Element.ALIGN_MIDDLE);
