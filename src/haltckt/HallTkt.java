@@ -2561,7 +2561,7 @@ public class HallTkt extends JFrame implements ActionListener, MouseListener {
 					
 					Phrase Name = new Phrase("Name: "+nam.toUpperCase(), nb);
 					Phrase Fath = new Phrase("Father's Name: "+fath.toUpperCase(), n);
-					Phrase Addr = new Phrase("Address: "+a1.toUpperCase()+" "+a2.toUpperCase()+" "+c.toUpperCase(), n);
+					Phrase Addr = new Phrase("Address: "+a1.toUpperCase()+" "+a2.toUpperCase()+" "+c.toUpperCase(), si);
 					Phrase Patasala = new Phrase("Patasala Name: "+pa.toUpperCase(), nb);
 					Phrase Vedam = new Phrase("Vedam: "+ve, n);
 					Phrase Portion = new Phrase("Portion: "+p+" "+ip+sa, n);
@@ -2608,13 +2608,13 @@ public class HallTkt extends JFrame implements ActionListener, MouseListener {
 					pl1_c.setColspan(3);			
 					pl1_c.setBorder(0);
 					PdfPCell cell_poto = new PdfPCell(im_c);
-					im_c.scaleToFit(130,78);
+					im_c.scaleToFit(150,88);
 					cell_poto.setBorder(0);
 					cell_poto.setHorizontalAlignment(Element.ALIGN_CENTER);
 					cell_poto.setVerticalAlignment(Element.ALIGN_MIDDLE);
 					cell_poto.setRowspan(4);
 					PdfPCell sign_poto = new PdfPCell(sign);
-					sign.scaleToFit(230, 40);
+					sign.scaleToFit(150, 40);
 					//sign.scaleToFit(sign_poto);
 					sign_poto.setBorder(0);
 					sign_poto.setColspan(3);
