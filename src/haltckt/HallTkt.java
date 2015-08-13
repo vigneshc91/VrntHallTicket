@@ -2345,6 +2345,7 @@ public class HallTkt extends JFrame implements ActionListener, MouseListener {
 			//Phrase h = new Phrase("SRI GURUBHYO NAMAHA");
 			com.itextpdf.text.Font f = new com.itextpdf.text.Font(FontFamily.TIMES_ROMAN, 18);
 			com.itextpdf.text.Font n = new com.itextpdf.text.Font(FontFamily.TIMES_ROMAN, 10);
+			com.itextpdf.text.Font nr = new com.itextpdf.text.Font(FontFamily.TIMES_ROMAN, 12);
 			com.itextpdf.text.Font nb = new com.itextpdf.text.Font(FontFamily.TIMES_ROMAN, 10, Font.BOLD);
 			com.itextpdf.text.Font si = new com.itextpdf.text.Font(FontFamily.TIMES_ROMAN, 8);
 			//Phrase pan = new Phrase("PAN No.: AAATV3147P");
@@ -2556,7 +2557,7 @@ public class HallTkt extends JFrame implements ActionListener, MouseListener {
 					table.addCell(cell4);
 					table.addCell(cell5);
 					
-					Phrase Reg = new Phrase("Register No: "+re.toUpperCase(), n);
+					Phrase Reg = new Phrase("Hall Ticket No: "+re.toUpperCase(), nr);
 					
 					
 					Phrase Name = new Phrase("Name: "+nam.toUpperCase(), nb);
